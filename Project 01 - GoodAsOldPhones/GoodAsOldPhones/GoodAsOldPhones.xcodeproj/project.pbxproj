@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		458024E12601C69B00378259 /* castle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 458024E02601C69B00378259 /* castle.jpg */; };
+		458024E52601CECC00378259 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458024E42601CECC00378259 /* DetailVC.swift */; };
 		45F1BD7326006E63002C2510 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F1BD7226006E63002C2510 /* AppDelegate.swift */; };
 		45F1BD7526006E63002C2510 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F1BD7426006E63002C2510 /* SceneDelegate.swift */; };
 		45F1BD7926006E64002C2510 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45F1BD7826006E64002C2510 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		092728E4BF6784B7B055498C /* Pods-GoodAsOldPhones.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodAsOldPhones.debug.xcconfig"; path = "Target Support Files/Pods-GoodAsOldPhones/Pods-GoodAsOldPhones.debug.xcconfig"; sourceTree = "<group>"; };
 		1E5F7E1DE429B008867FF690 /* Pods_GoodAsOldPhones.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoodAsOldPhones.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		458024E02601C69B00378259 /* castle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = castle.jpg; sourceTree = "<group>"; };
+		458024E42601CECC00378259 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		45F1BD6F26006E63002C2510 /* GoodAsOldPhones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodAsOldPhones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F1BD7226006E63002C2510 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45F1BD7426006E63002C2510 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				45F1BD8D260071A8002C2510 /* MemoryVC.swift */,
 				45F1BDA426008221002C2510 /* TabBarController.swift */,
 				45F1BD90260071C2002C2510 /* AboutVC.swift */,
+				458024E42601CECC00378259 /* DetailVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				45F1BDA526008221002C2510 /* TabBarController.swift in Sources */,
 				45F1BD7526006E63002C2510 /* SceneDelegate.swift in Sources */,
 				45F1BD8E260071A8002C2510 /* MemoryVC.swift in Sources */,
+				458024E52601CECC00378259 /* DetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

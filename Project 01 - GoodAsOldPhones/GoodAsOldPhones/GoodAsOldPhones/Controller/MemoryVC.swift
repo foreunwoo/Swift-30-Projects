@@ -63,7 +63,13 @@ extension MemoryVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = DetailVC()
+        detailVC.titleImageView.image = UIImage(named: list[indexPath.row][0])
+        detailVC.titleLabel.text = list[indexPath.row][1]
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 class MemoryTVCell: UITableViewCell {
