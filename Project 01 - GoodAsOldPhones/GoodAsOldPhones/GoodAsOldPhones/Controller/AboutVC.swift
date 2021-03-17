@@ -53,10 +53,19 @@ class AboutVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 2)
         
         makeConstraints()
+    }
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 2)
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     func makeConstraints() {

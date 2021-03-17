@@ -69,8 +69,8 @@
 		458024DD2601C15F00378259 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				45F1BD8D260071A8002C2510 /* MemoryVC.swift */,
 				45F1BDA426008221002C2510 /* TabBarController.swift */,
+				45F1BD8D260071A8002C2510 /* MemoryVC.swift */,
 				45F1BD90260071C2002C2510 /* AboutVC.swift */,
 				458024E42601CECC00378259 /* DetailVC.swift */,
 			);

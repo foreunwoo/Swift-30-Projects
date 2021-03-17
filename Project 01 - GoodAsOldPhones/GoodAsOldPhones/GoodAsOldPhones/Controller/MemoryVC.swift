@@ -21,9 +21,18 @@ class MemoryVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 1)
-
         setTableView()
+    }
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
     }
     
     func setTableView() {
