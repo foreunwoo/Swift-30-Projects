@@ -46,7 +46,7 @@ class HomeVC: UIViewController {
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     // HeaderView
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 250
+        return 500
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
