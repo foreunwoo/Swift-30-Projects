@@ -3,17 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0BDEAAA04759486D4553841E /* Pods_FacebookMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA3B9FEAFC9ABD4BC31A58 /* Pods_FacebookMe.framework */; };
 		45575F98260477AD00F7F6A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45575F97260477AD00F7F6A9 /* AppDelegate.swift */; };
 		45575F9A260477AD00F7F6A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45575F99260477AD00F7F6A9 /* SceneDelegate.swift */; };
-		45575F9C260477AD00F7F6A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45575F9B260477AD00F7F6A9 /* ContentView.swift */; };
 		45575F9E260477B000F7F6A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45575F9D260477B000F7F6A9 /* Assets.xcassets */; };
-		45575FA1260477B000F7F6A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45575FA0260477B000F7F6A9 /* Preview Assets.xcassets */; };
 		45575FA4260477B000F7F6A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45575FA2260477B000F7F6A9 /* LaunchScreen.storyboard */; };
+		45575FB926047A2E00F7F6A9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45575FB826047A2E00F7F6A9 /* HomeVC.swift */; };
+		45575FC3260481CF00F7F6A9 /* MenuTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45575FC2260481CF00F7F6A9 /* MenuTVCell.swift */; };
+		45575FC82604823200F7F6A9 /* Identify+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45575FC72604823200F7F6A9 /* Identify+Enum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +22,12 @@
 		45575F94260477AD00F7F6A9 /* FacebookMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FacebookMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45575F97260477AD00F7F6A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45575F99260477AD00F7F6A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		45575F9B260477AD00F7F6A9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		45575F9D260477B000F7F6A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		45575FA0260477B000F7F6A9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		45575FA3260477B000F7F6A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45575FA5260477B000F7F6A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45575FB826047A2E00F7F6A9 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		45575FC2260481CF00F7F6A9 /* MenuTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTVCell.swift; sourceTree = "<group>"; };
+		45575FC72604823200F7F6A9 /* Identify+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Identify+Enum.swift"; sourceTree = "<group>"; };
 		A3AA3B9FEAFC9ABD4BC31A58 /* Pods_FacebookMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FacebookMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51377AA0F7E70C69A888BA7 /* Pods-FacebookMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FacebookMe.debug.xcconfig"; path = "Target Support Files/Pods-FacebookMe/Pods-FacebookMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,23 +65,56 @@
 		45575F96260477AD00F7F6A9 /* FacebookMe */ = {
 			isa = PBXGroup;
 			children = (
-				45575F97260477AD00F7F6A9 /* AppDelegate.swift */,
-				45575F99260477AD00F7F6A9 /* SceneDelegate.swift */,
-				45575F9B260477AD00F7F6A9 /* ContentView.swift */,
+				45575FCA26048AE700F7F6A9 /* Model */,
+				45575FC62604821500F7F6A9 /* Util */,
+				45575FC12604819B00F7F6A9 /* View */,
+				45575FB726047A1B00F7F6A9 /* Controllers */,
+				45575FAF2604796C00F7F6A9 /* Delegate */,
 				45575F9D260477B000F7F6A9 /* Assets.xcassets */,
 				45575FA2260477B000F7F6A9 /* LaunchScreen.storyboard */,
 				45575FA5260477B000F7F6A9 /* Info.plist */,
-				45575F9F260477B000F7F6A9 /* Preview Content */,
 			);
 			path = FacebookMe;
 			sourceTree = "<group>";
 		};
-		45575F9F260477B000F7F6A9 /* Preview Content */ = {
+		45575FAF2604796C00F7F6A9 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				45575FA0260477B000F7F6A9 /* Preview Assets.xcassets */,
+				45575F97260477AD00F7F6A9 /* AppDelegate.swift */,
+				45575F99260477AD00F7F6A9 /* SceneDelegate.swift */,
 			);
-			path = "Preview Content";
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		45575FB726047A1B00F7F6A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				45575FB826047A2E00F7F6A9 /* HomeVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		45575FC12604819B00F7F6A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				45575FC2260481CF00F7F6A9 /* MenuTVCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		45575FC62604821500F7F6A9 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				45575FC72604823200F7F6A9 /* Identify+Enum.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		45575FCA26048AE700F7F6A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		74DECA3B2959528C1BA5AA36 /* Frameworks */ = {
@@ -96,7 +131,6 @@
 				B51377AA0F7E70C69A888BA7 /* Pods-FacebookMe.debug.xcconfig */,
 				3C2B538B191936BD3CB44FDD /* Pods-FacebookMe.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -160,7 +194,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45575FA4260477B000F7F6A9 /* LaunchScreen.storyboard in Resources */,
-				45575FA1260477B000F7F6A9 /* Preview Assets.xcassets in Resources */,
 				45575F9E260477B000F7F6A9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,9 +247,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45575FB926047A2E00F7F6A9 /* HomeVC.swift in Sources */,
+				45575FC82604823200F7F6A9 /* Identify+Enum.swift in Sources */,
 				45575F98260477AD00F7F6A9 /* AppDelegate.swift in Sources */,
+				45575FC3260481CF00F7F6A9 /* MenuTVCell.swift in Sources */,
 				45575F9A260477AD00F7F6A9 /* SceneDelegate.swift in Sources */,
-				45575F9C260477AD00F7F6A9 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +392,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"FacebookMe/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FacebookMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -378,7 +413,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"FacebookMe/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FacebookMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
