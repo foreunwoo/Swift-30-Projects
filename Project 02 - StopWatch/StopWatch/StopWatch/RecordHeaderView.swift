@@ -31,12 +31,12 @@ class RecordHeaderView: UITableViewHeaderFooterView {
     
     let buttonContainerView = UIView()
     
-    let lapButton = UIButton().then {
+    let lapOrResetButton = HighlightedButton().then {
         $0.setTitle("Lap", for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 18)
         $0.setTitleColor(.black, for: .normal)
     }
-    let startButton = UIButton().then {
+    let startOrStopButton = HighlightedButton().then {
         $0.titleLabel?.font = .systemFont(ofSize: 18)
         
         $0.setTitle("Start", for: .normal)
@@ -57,8 +57,8 @@ class RecordHeaderView: UITableViewHeaderFooterView {
     }
     
     func makeConstraints() {
-        lapButton.addTarget(self, action: #selector(didTapLapButton), for: .touchUpInside)
-        startButton.addTarget(self, action: #selector(didTapStartButton(_:)), for: .touchUpInside)
+        lapOrResetButton.addTarget(self, action: #selector(didTapLapOrResetButton), for: .touchUpInside)
+        startOrStopButton.addTarget(self, action: #selector(didTapStartOrStopButton(_:)), for: .touchUpInside)
         
         contentView.backgroundColor = .white
         
@@ -67,8 +67,8 @@ class RecordHeaderView: UITableViewHeaderFooterView {
         labelContainerView.addSubview(decimalSecLabel)
         
         contentView.addSubview(buttonContainerView)
-        buttonContainerView.addSubview(lapButton)
-        buttonContainerView.addSubview(startButton)
+        buttonContainerView.addSubview(lapOrResetButton)
+        buttonContainerView.addSubview(startOrStopButton)
         
         labelContainerView.snp.makeConstraints {
             $0.height.equalTo(100).priority(999)
@@ -99,14 +99,14 @@ class RecordHeaderView: UITableViewHeaderFooterView {
             $0.bottom.equalTo(contentView.snp.bottom).inset(30)
         }
         
-        lapButton.snp.makeConstraints {
+        lapOrResetButton.snp.makeConstraints {
             $0.width.equalTo(80)
             
             $0.top.equalTo(buttonContainerView.snp.top)
             $0.left.equalTo(buttonContainerView.snp.left)
             $0.bottom.equalTo(buttonContainerView.snp.bottom)
         }
-        startButton.snp.makeConstraints {
+        startOrStopButton.snp.makeConstraints {
             $0.width.equalTo(80)
             
             $0.top.equalTo(buttonContainerView.snp.top)
@@ -116,9 +116,9 @@ class RecordHeaderView: UITableViewHeaderFooterView {
     
     }
     
-    @objc func didTapStartButton(_ sender: UIButton) {
-        if !startButton.isSelected { // start 상태
-            startButton.isSelected = true
+    @objc func didTapStartOrStopButton(_ sender: UIButton) {
+        if !startOrStopButton.isSelected { // start 상태
+            startOrStopButton.isSelected = true
             mainTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { (_) in
                         self.timeCount += 1
                         DispatchQueue.main.async {
@@ -127,13 +127,14 @@ class RecordHeaderView: UITableViewHeaderFooterView {
                             self.decimalSecLabel.text = ".\(timeString.1)"
                         }
                     })
+            lapOrResetButton.setTitle("Lap", for: .normal)
 
         } else { // stop 상태
-            startButton.isSelected = false
+            startOrStopButton.isSelected = false
             mainTimer?.invalidate()
             mainTimer = nil
             
-            lapButton.setTitle("Reset", for: .normal)
+            lapOrResetButton.setTitle("Reset", for: .normal)
         }
         
     }
@@ -149,16 +150,24 @@ class RecordHeaderView: UITableViewHeaderFooterView {
         return ("\(min_string):\(sec_string)","\(decimalSec)")
     }
     
-    @objc func didTapLapButton() {
-        if lapButton.titleLabel?.text == "Reset" {
+    @objc func didTapLapOrResetButton() {
+        if lapOrResetButton.titleLabel?.text == "Reset" {
             mainTimer?.invalidate()
             mainTimer = nil
             timeCount = 0
             timeLabel.text = "00:00"
             decimalSecLabel.text = ".0"
             
-            lapButton.setTitle("Lap", for: .normal)
-            lapButton.isEnabled = false
+            lapOrResetButton.setTitle("Lap", for: .normal)
+            self.homeVC?.recordList.removeAll()
+            self.homeVC?.recordTableView.reloadData()
+            
+        } else {
+            if startOrStopButton.titleLabel?.text == "Stop" {
+                let timeString = self.makeTimeLabel(count: self.timeCount)
+                self.homeVC?.recordList.append("\(timeString.0).\(timeString.1)")
+                self.homeVC?.recordTableView.reloadData()
+            }
         }
     }
 

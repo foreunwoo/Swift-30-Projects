@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45575F6726046A3900F7F6A9 /* HighlightedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45575F6626046A3800F7F6A9 /* HighlightedButton.swift */; };
 		4559C85926031BE600DC7CFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559C85826031BE600DC7CFD /* AppDelegate.swift */; };
 		4559C85B26031BE600DC7CFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559C85A26031BE600DC7CFD /* SceneDelegate.swift */; };
 		4559C85F26031BEA00DC7CFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4559C85E26031BEA00DC7CFD /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45575F6626046A3800F7F6A9 /* HighlightedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedButton.swift; sourceTree = "<group>"; };
 		4559C85526031BE600DC7CFD /* StopWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StopWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4559C85826031BE600DC7CFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4559C85A26031BE600DC7CFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				4559C87B2603231E00DC7CFD /* Controllers */,
 				4559C86D26031BFE00DC7CFD /* Delegate */,
 				4559C87C260323DB00DC7CFD /* RecordHeaderView.swift */,
+				45575F6626046A3800F7F6A9 /* HighlightedButton.swift */,
 				4559C85E26031BEA00DC7CFD /* Assets.xcassets */,
 				4559C86326031BEA00DC7CFD /* LaunchScreen.storyboard */,
 				4559C86626031BEA00DC7CFD /* Info.plist */,
@@ -224,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4559C87D260323DB00DC7CFD /* RecordHeaderView.swift in Sources */,
+				45575F6726046A3900F7F6A9 /* HighlightedButton.swift in Sources */,
 				4559C85926031BE600DC7CFD /* AppDelegate.swift in Sources */,
 				4559C87126031C8300DC7CFD /* HomeVC.swift in Sources */,
 				4559C87926031EE400DC7CFD /* Idenfity+Enum.swift in Sources */,

@@ -13,6 +13,8 @@ class HomeVC: UIViewController {
     
     let recordTableView = UITableView()
     
+    var recordList: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -61,12 +63,15 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        return recordList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecordTVCell") as! RecordTVCell
         cell.selectionStyle = .none
+        
+        cell.lapLabel.text = "Lap \(indexPath.row + 1)"
+        cell.timeLabel.text = recordList[indexPath.row]
         
         return cell
     }
