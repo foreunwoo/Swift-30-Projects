@@ -33,6 +33,7 @@ class HomeVC: UIViewController {
 
         view.backgroundColor = .white
         self.navigationItem.title = "Facebook"
+        self.navigationController?.navigationBar.barTintColor = .facebookBlue
         
         setTableView()
     }
@@ -93,23 +94,20 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-            cell.titleLabel.text = menues[indexPath.row][0]
-            cell.titleImageView.image = UIImage(systemName: menues[indexPath.row][1])
+            cell.menuList[0] = menues[indexPath.row][0]
+            cell.menuList[1] = menues[indexPath.row][1]
         case 1:
-            cell.titleLabel.text = "Add Favorites..."
-            cell.titleImageView.image = UIImage(systemName: "")
+            cell.menuList[0] = "Add Favorites..."
         case 2:
-            cell.titleLabel.text = settings[indexPath.row][0]
-            cell.titleImageView.image = UIImage(systemName: settings[indexPath.row][1])
+            cell.menuList[0] = settings[indexPath.row][0]
+            cell.menuList[1] = settings[indexPath.row][1]
         default:
             return UITableViewCell()
         }
         
+        cell.fillDataToView()
+        
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 100
     }
     
     

@@ -13,6 +13,8 @@ class MenuTVCell: UITableViewCell {
     
     static let identifier = Identify.MenuTVCell
     
+    var menuList = ["", ""]
+    
     let titleImageView = UIImageView().then {
         $0.image = UIImage(systemName: "person.2.fill")
         $0.tintColor = .black
@@ -62,6 +64,20 @@ class MenuTVCell: UITableViewCell {
             
             $0.centerY.equalTo(titleLabel)
             $0.right.equalTo(contentView.snp.right).inset(15)
+        }
+    }
+    
+    func fillDataToView() {
+        _ = titleImageView.then {
+            $0.image = UIImage(systemName: menuList[1])
+        }
+        
+        _ = titleLabel.then {
+            $0.text = menuList[0]
+            
+            if menuList[1] == "" {
+                $0.textColor = .facebookBlue
+            }
         }
     }
     

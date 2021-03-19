@@ -15,6 +15,7 @@
 		45575FB926047A2E00F7F6A9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45575FB826047A2E00F7F6A9 /* HomeVC.swift */; };
 		45575FC3260481CF00F7F6A9 /* MenuTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45575FC2260481CF00F7F6A9 /* MenuTVCell.swift */; };
 		45575FC82604823200F7F6A9 /* Identify+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45575FC72604823200F7F6A9 /* Identify+Enum.swift */; };
+		45D329F12605008F00369974 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D329F02605008F00369974 /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		45575FB826047A2E00F7F6A9 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		45575FC2260481CF00F7F6A9 /* MenuTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTVCell.swift; sourceTree = "<group>"; };
 		45575FC72604823200F7F6A9 /* Identify+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Identify+Enum.swift"; sourceTree = "<group>"; };
+		45D329F02605008F00369974 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		A3AA3B9FEAFC9ABD4BC31A58 /* Pods_FacebookMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FacebookMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51377AA0F7E70C69A888BA7 /* Pods-FacebookMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FacebookMe.debug.xcconfig"; path = "Target Support Files/Pods-FacebookMe/Pods-FacebookMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +67,7 @@
 		45575F96260477AD00F7F6A9 /* FacebookMe */ = {
 			isa = PBXGroup;
 			children = (
+				45D329EF2605007700369974 /* Extensions */,
 				45575FCA26048AE700F7F6A9 /* Model */,
 				45575FC62604821500F7F6A9 /* Util */,
 				45575FC12604819B00F7F6A9 /* View */,
@@ -115,6 +118,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		45D329EF2605007700369974 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				45D329F02605008F00369974 /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		74DECA3B2959528C1BA5AA36 /* Frameworks */ = {
@@ -250,6 +261,7 @@
 				45575FB926047A2E00F7F6A9 /* HomeVC.swift in Sources */,
 				45575FC82604823200F7F6A9 /* Identify+Enum.swift in Sources */,
 				45575F98260477AD00F7F6A9 /* AppDelegate.swift in Sources */,
+				45D329F12605008F00369974 /* UIColor+Extension.swift in Sources */,
 				45575FC3260481CF00F7F6A9 /* MenuTVCell.swift in Sources */,
 				45575F9A260477AD00F7F6A9 /* SceneDelegate.swift in Sources */,
 			);
