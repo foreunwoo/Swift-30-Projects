@@ -22,11 +22,11 @@ class RecordHeaderView: UITableViewHeaderFooterView {
     
     let timeLabel = UILabel().then {
         $0.text = "00:00"
-        $0.font = .boldSystemFont(ofSize: 80)
+        $0.font = .systemFont(ofSize: 70)
     }
     let decimalSecLabel = UILabel().then {
         $0.text = ".0"
-        $0.font = .systemFont(ofSize: 50)
+        $0.font = .systemFont(ofSize: 40)
     }
     
     let buttonContainerView = UIView()
@@ -72,7 +72,7 @@ class RecordHeaderView: UITableViewHeaderFooterView {
         
         labelContainerView.snp.makeConstraints {
             $0.height.equalTo(100).priority(999)
-            $0.width.equalTo(270)
+            $0.width.equalTo(230)
             
             $0.centerX.equalTo(contentView)
             $0.top.equalTo(contentView.snp.top).offset(50)

@@ -46,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45575F6926046C8800F7F6A9 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				45575F6626046A3800F7F6A9 /* HighlightedButton.swift */,
+				4559C87826031EE400DC7CFD /* Idenfity+Enum.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		4559C84C26031BE600DC7CFD = {
 			isa = PBXGroup;
 			children = (
@@ -70,11 +79,10 @@
 				4559C87B2603231E00DC7CFD /* Controllers */,
 				4559C86D26031BFE00DC7CFD /* Delegate */,
 				4559C87C260323DB00DC7CFD /* RecordHeaderView.swift */,
-				45575F6626046A3800F7F6A9 /* HighlightedButton.swift */,
+				45575F6926046C8800F7F6A9 /* Util */,
 				4559C85E26031BEA00DC7CFD /* Assets.xcassets */,
 				4559C86326031BEA00DC7CFD /* LaunchScreen.storyboard */,
 				4559C86626031BEA00DC7CFD /* Info.plist */,
-				4559C87826031EE400DC7CFD /* Idenfity+Enum.swift */,
 			);
 			path = StopWatch;
 			sourceTree = "<group>";
