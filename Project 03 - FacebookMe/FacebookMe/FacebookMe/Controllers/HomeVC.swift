@@ -13,7 +13,7 @@ class HomeVC: UIViewController {
     
     let menuTableView = UITableView(frame: .zero, style: .grouped)
     
-    let sections = [" ","Favorites"," "]
+    let sections = [" "," ","Favorites"," "," "]
     
     var menues = [["Friends", "person.2.fill"],
                     ["Events", "calendar"],
@@ -43,7 +43,9 @@ class HomeVC: UIViewController {
             $0.delegate = self
             $0.dataSource = self
             
+            $0.register(ProfileTVCell.self, forCellReuseIdentifier: Identify.ProfileTVCell)
             $0.register(MenuTVCell.self, forCellReuseIdentifier: Identify.MenuTVCell)
+            $0.register(LogOutTVCell.self, forCellReuseIdentifier: Identify.LogOutTVCell)
             
             view.addSubview($0)
             
@@ -60,7 +62,10 @@ class HomeVC: UIViewController {
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        if indexPath.section == 0 {
+            return UITableView.automaticDimension
+        }
+        return 50
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -78,29 +83,50 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return menues.count
-        case 1:
             return 1
+        case 1:
+            return menues.count
         case 2:
+            return 1
+        case 3:
             return settings.count
+        case 4:
+            return 1
         default:
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTVCell", for: indexPath) as! MenuTVCell
+        
+        let cellId: String
+        
+        switch indexPath.section {
+        case 0:
+            cellId = Identify.ProfileTVCell
+        case 4:
+            cellId = Identify.LogOutTVCell
+        default:
+            cellId = Identify.MenuTVCell
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! MenuTVCell
         cell.selectionStyle = .none
         
         switch indexPath.section {
         case 0:
+            cell.menuList[0] = "eunwoo"
+            cell.menuList[1] = "cat.jpeg"
+        case 1:
             cell.menuList[0] = menues[indexPath.row][0]
             cell.menuList[1] = menues[indexPath.row][1]
-        case 1:
-            cell.menuList[0] = "Add Favorites..."
         case 2:
+            cell.menuList[0] = "Add Favorites..."
+        case 3:
             cell.menuList[0] = settings[indexPath.row][0]
             cell.menuList[1] = settings[indexPath.row][1]
+        case 4:
+            cell.menuList[0] = "Log out"
         default:
             return UITableViewCell()
         }

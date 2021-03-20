@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0BDEAAA04759486D4553841E /* Pods_FacebookMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA3B9FEAFC9ABD4BC31A58 /* Pods_FacebookMe.framework */; };
+		45401B1E2605D8D200EE1771 /* ProfileTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45401B1D2605D8D200EE1771 /* ProfileTVCell.swift */; };
+		45401B212605DEBD00EE1771 /* LogOutTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45401B202605DEBD00EE1771 /* LogOutTVCell.swift */; };
+		45401B242605E73F00EE1771 /* cat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 45401B232605E73F00EE1771 /* cat.jpeg */; };
 		45575F98260477AD00F7F6A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45575F97260477AD00F7F6A9 /* AppDelegate.swift */; };
 		45575F9A260477AD00F7F6A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45575F99260477AD00F7F6A9 /* SceneDelegate.swift */; };
 		45575F9E260477B000F7F6A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45575F9D260477B000F7F6A9 /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 
 /* Begin PBXFileReference section */
 		3C2B538B191936BD3CB44FDD /* Pods-FacebookMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FacebookMe.release.xcconfig"; path = "Target Support Files/Pods-FacebookMe/Pods-FacebookMe.release.xcconfig"; sourceTree = "<group>"; };
+		45401B1D2605D8D200EE1771 /* ProfileTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTVCell.swift; sourceTree = "<group>"; };
+		45401B202605DEBD00EE1771 /* LogOutTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutTVCell.swift; sourceTree = "<group>"; };
+		45401B232605E73F00EE1771 /* cat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat.jpeg; sourceTree = "<group>"; };
 		45575F94260477AD00F7F6A9 /* FacebookMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FacebookMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45575F97260477AD00F7F6A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45575F99260477AD00F7F6A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,8 +73,8 @@
 		45575F96260477AD00F7F6A9 /* FacebookMe */ = {
 			isa = PBXGroup;
 			children = (
+				45401B232605E73F00EE1771 /* cat.jpeg */,
 				45D329EF2605007700369974 /* Extensions */,
-				45575FCA26048AE700F7F6A9 /* Model */,
 				45575FC62604821500F7F6A9 /* Util */,
 				45575FC12604819B00F7F6A9 /* View */,
 				45575FB726047A1B00F7F6A9 /* Controllers */,
@@ -101,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				45575FC2260481CF00F7F6A9 /* MenuTVCell.swift */,
+				45401B1D2605D8D200EE1771 /* ProfileTVCell.swift */,
+				45401B202605DEBD00EE1771 /* LogOutTVCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -111,13 +119,6 @@
 				45575FC72604823200F7F6A9 /* Identify+Enum.swift */,
 			);
 			path = Util;
-			sourceTree = "<group>";
-		};
-		45575FCA26048AE700F7F6A9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		45D329EF2605007700369974 /* Extensions */ = {
@@ -204,6 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45401B242605E73F00EE1771 /* cat.jpeg in Resources */,
 				45575FA4260477B000F7F6A9 /* LaunchScreen.storyboard in Resources */,
 				45575F9E260477B000F7F6A9 /* Assets.xcassets in Resources */,
 			);
@@ -258,6 +260,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45401B1E2605D8D200EE1771 /* ProfileTVCell.swift in Sources */,
+				45401B212605DEBD00EE1771 /* LogOutTVCell.swift in Sources */,
 				45575FB926047A2E00F7F6A9 /* HomeVC.swift in Sources */,
 				45575FC82604823200F7F6A9 /* Identify+Enum.swift in Sources */,
 				45575F98260477AD00F7F6A9 /* AppDelegate.swift in Sources */,

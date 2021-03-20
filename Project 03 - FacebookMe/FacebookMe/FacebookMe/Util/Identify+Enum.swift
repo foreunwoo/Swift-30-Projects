@@ -10,4 +10,6 @@ import Foundation
 enum Identify {
     
     static let MenuTVCell = "MenuTVCell"
+    static let ProfileTVCell = "ProfileTVCell"
+    static let LogOutTVCell = "LogOutTVCell"
 }
