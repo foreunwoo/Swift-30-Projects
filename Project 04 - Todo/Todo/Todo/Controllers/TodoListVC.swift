@@ -15,7 +15,7 @@ class TodoListVC: UIViewController {
     
     let todoListTableView = UITableView()
     
-    var list = ["", "", ""]
+    var list: [Plan] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +56,8 @@ class TodoListVC: UIViewController {
     @objc func didTapAddButton() {
         let inputVC = InputVC()
         
+        inputVC.todoListVC = self
+        
         self.navigationController?.pushViewController(inputVC, animated: true)
     }
 
@@ -72,14 +74,16 @@ extension TodoListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        return list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identify.TodoListTVCell, for: indexPath) as! TodoListTVCell
+        cell.selectionStyle = .none
+        
+        cell.plan = list[indexPath.row]
+        cell.fillDataToView()
         
         return cell
     }
-    
-    
 }

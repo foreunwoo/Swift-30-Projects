@@ -24,6 +24,11 @@ class InputVC: UIViewController {
     let dateTextField = UITextField().then {
         $0.font = .systemFont(ofSize: 15)
         $0.borderStyle = .roundedRect
+        $0.isEnabled = false
+    }
+    let dateLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 13)
+        $0.text = "date"
     }
         
     let datePicker = UIDatePicker().then {
@@ -35,14 +40,17 @@ class InputVC: UIViewController {
     
     let buttonContainerView = UIView()
     
-    let cancelButton = UIButton().then {
+    let cancelButton = HighlightedButton().then {
         $0.setTitle("cancel", for: .normal)
         $0.setTitleColor(.red, for: .normal)
     }
-    let saveButton = UIButton().then {
+    let saveButton = HighlightedButton().then {
+        $0.isUserInteractionEnabled = true
         $0.setTitle("save", for: .normal)
         $0.setTitleColor(.blue, for: .normal)
     }
+    
+    var todoListVC: TodoListVC?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,12 +59,18 @@ class InputVC: UIViewController {
     }
     
     func makeConstraints() {
+        datePicker.addTarget(self, action: #selector(didChangeDate(sender:)), for: .valueChanged)
+        
+        cancelButton.addTarget(self, action: #selector(didTapCancelButton), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
+        
         view.backgroundColor = .white
         
         view.addSubview(textFieldContainerView)
         textFieldContainerView.addSubview(todoTextField)
         textFieldContainerView.addSubview(locationTextField)
         textFieldContainerView.addSubview(dateTextField)
+        textFieldContainerView.addSubview(dateLabel)
         
         view.addSubview(datePicker)
         
@@ -93,6 +107,10 @@ class InputVC: UIViewController {
             $0.top.equalTo(locationTextField.snp.bottom).offset(10)
             $0.left.equalTo(locationTextField.snp.left)
             $0.right.equalTo(locationTextField.snp.right)
+        }        
+        dateLabel.snp.makeConstraints {
+            $0.top.equalTo(dateTextField.snp.bottom).offset(10)
+            $0.centerX.equalTo(textFieldContainerView)
         }
         
         datePicker.snp.makeConstraints {
@@ -123,4 +141,30 @@ class InputVC: UIViewController {
             $0.bottom.equalTo(buttonContainerView.snp.bottom)
         }
     }
+    
+    @objc func didChangeDate(sender: UIDatePicker){
+        let dateFormatter: DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        
+        let selectedDate: String = dateFormatter.string(from: sender.date)
+        self.dateTextField.text = selectedDate
+    }
+    
+    @objc func didTapSaveButton() {
+        if self.todoTextField.text ?? "" != "" && self.locationTextField.text ?? "" != "" && self.dateTextField.text ?? "" != "" {
+            let plan = Plan(self.todoTextField.text ?? "", self.locationTextField.text ?? "", self.dateTextField.text ?? "")
+            
+            todoListVC?.list.append(plan)
+            todoListVC?.todoListTableView.reloadData()
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    @objc func didTapCancelButton() {
+        self.todoTextField.text = ""
+        self.locationTextField.text = ""
+        self.dateTextField.text = ""
+    }
+
 }

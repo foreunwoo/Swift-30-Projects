@@ -29,6 +29,8 @@ class TodoListTVCell: UITableViewCell {
         $0.textAlignment = .center
         $0.text = "03/23/2021"
     }
+    
+    var plan: Plan?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -75,6 +77,12 @@ class TodoListTVCell: UITableViewCell {
             $0.right.equalTo(contentView.snp.right)
             $0.bottom.equalTo(contentView.snp.bottom)
         }
+    }
+    
+    func fillDataToView() {
+        todoLabel.text = plan?.todo
+        locationLabel.text = plan?.location
+        dateLabel.text = plan?.date
     }
     
 }

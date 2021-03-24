@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		453A7C3D260B209900425946 /* HighlightedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453A7C3C260B209900425946 /* HighlightedButton.swift */; };
+		453A7C42260B25A200425946 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453A7C41260B25A200425946 /* Plan.swift */; };
 		455EC745260A083A006A1654 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455EC744260A083A006A1654 /* AppDelegate.swift */; };
 		455EC747260A083A006A1654 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455EC746260A083A006A1654 /* SceneDelegate.swift */; };
 		455EC74B260A083C006A1654 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455EC74A260A083C006A1654 /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		3931F51678FD302A9D913B7A /* Pods-Todo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo.release.xcconfig"; path = "Target Support Files/Pods-Todo/Pods-Todo.release.xcconfig"; sourceTree = "<group>"; };
+		453A7C3C260B209900425946 /* HighlightedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedButton.swift; sourceTree = "<group>"; };
+		453A7C41260B25A200425946 /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		455EC741260A083A006A1654 /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		455EC744260A083A006A1654 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		455EC746260A083A006A1654 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +50,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		453A7C3B260B205900425946 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				453A7C3C260B209900425946 /* HighlightedButton.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		453A7C40260B259700425946 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				453A7C41260B25A200425946 /* Plan.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		455EC738260A083A006A1654 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +87,8 @@
 		455EC743260A083A006A1654 /* Todo */ = {
 			isa = PBXGroup;
 			children = (
+				453A7C40260B259700425946 /* Model */,
+				453A7C3B260B205900425946 /* Util */,
 				455EC778260A101C006A1654 /* Enum */,
 				455EC76D260A0C21006A1654 /* Views */,
 				455EC76A260A0AA1006A1654 /* Supporting Files */,
@@ -258,7 +280,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				453A7C42260B25A200425946 /* Plan.swift in Sources */,
 				455EC745260A083A006A1654 /* AppDelegate.swift in Sources */,
+				453A7C3D260B209900425946 /* HighlightedButton.swift in Sources */,
 				455EC77A260A102B006A1654 /* Identify+Enum.swift in Sources */,
 				455EC747260A083A006A1654 /* SceneDelegate.swift in Sources */,
 				455EC75D260A09F5006A1654 /* TodoListVC.swift in Sources */,
