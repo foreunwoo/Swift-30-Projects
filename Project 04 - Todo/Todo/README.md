@@ -45,4 +45,7 @@ datePicker.addTarget(self, action: #selector(didChangeDate(sender:)), for: .valu
     let selectedDate: String = dateFormatter.string(from: sender.date)
     self.dateTextField.text = selectedDate
 }
-```
+```  
+  
+참고한 사이트  
+https://calmone.tistory.com/entry/iOS-UIKit-in-Swift-4-UIDatePicker-사용하기
