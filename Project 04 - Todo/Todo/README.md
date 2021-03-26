@@ -25,6 +25,8 @@ let plan = Plan(self.todoTextField.text ?? "", self.locationTextField.text ?? ""
 
 todoListVC?.list.append(plan) // 값 채워서 리스트에 넣기
 ```
+</br>
+
 ### UIDatePicker, DateFormat
 DatePicker로 얻은 값을 DateFormatter으로 변환을 한 뒤에, TextField에 삽입하는 방식을 사용했다.
 DatePicker에 액션을 등록해서 값이 변경될 때마다 DateFormatter으로 변환이 일어나도록 했다.
@@ -46,6 +48,7 @@ datePicker.addTarget(self, action: #selector(didChangeDate(sender:)), for: .valu
     self.dateTextField.text = selectedDate
 }
 ```  
-  
-참고한 사이트  
-https://calmone.tistory.com/entry/iOS-UIKit-in-Swift-4-UIDatePicker-사용하기
+</br>
+
+참고한 사이트
+*  <https://calmone.tistory.com/entry/iOS-UIKit-in-Swift-4-UIDatePicker-사용하기>
