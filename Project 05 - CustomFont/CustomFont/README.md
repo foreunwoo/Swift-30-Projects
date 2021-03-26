@@ -13,7 +13,9 @@ let customTextView = UITextView().then {
 ~~~
 우선 sizeToFit으로 텍스트에 맞게 텍스트뷰의 사이즈가 조절되도록 만들었다.
 그리고 뷰의 autoresizing mask가 Auto Layout constraints으로 변환되도록 설정했고,
-isScrollEnabled를 false로 설정함으로서 스크롤 기능을 막았다.  
+isScrollEnabled를 false로 설정함으로서 스크롤 기능을 막았다.
+</br>
+
 참고한 사이트 
 *  <https://zeddios.tistory.com/474>
 *  <https://woongsios.tistory.com/3>
