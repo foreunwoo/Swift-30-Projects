@@ -13,6 +13,9 @@
 		4595BA2326119AE900EAC14B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4595BA2226119AE900EAC14B /* Assets.xcassets */; };
 		4595BA2926119AE900EAC14B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4595BA2726119AE900EAC14B /* LaunchScreen.storyboard */; };
 		4595BA3C26119C0A00EAC14B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4595BA3B26119C0A00EAC14B /* HomeVC.swift */; };
+		4595BA442611A1DC00EAC14B /* AnimalsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4595BA432611A1DC00EAC14B /* AnimalsTVCell.swift */; };
+		4595BA482611A20F00EAC14B /* Identify+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4595BA472611A20F00EAC14B /* Identify+Enum.swift */; };
+		4595BA4C2611A84D00EAC14B /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4595BA4B2611A84D00EAC14B /* Animal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		4595BA2826119AE900EAC14B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4595BA2A26119AE900EAC14B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4595BA3B26119C0A00EAC14B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		4595BA432611A1DC00EAC14B /* AnimalsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsTVCell.swift; sourceTree = "<group>"; };
+		4595BA472611A20F00EAC14B /* Identify+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Identify+Enum.swift"; sourceTree = "<group>"; };
+		4595BA4B2611A84D00EAC14B /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		9F10E3E7D1FA289C21E7F6C0 /* Pods-AnimalSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimalSearch.release.xcconfig"; path = "Target Support Files/Pods-AnimalSearch/Pods-AnimalSearch.release.xcconfig"; sourceTree = "<group>"; };
 		F8A69F5477708E6E71885D0F /* Pods-AnimalSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimalSearch.debug.xcconfig"; path = "Target Support Files/Pods-AnimalSearch/Pods-AnimalSearch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +76,9 @@
 		4595BA1B26119AE800EAC14B /* AnimalSearch */ = {
 			isa = PBXGroup;
 			children = (
+				4595BA4A2611A83E00EAC14B /* Model */,
+				4595BA462611A1FF00EAC14B /* Enum */,
+				4595BA422611A1A800EAC14B /* Views */,
 				4595BA3A26119BEC00EAC14B /* Controllers */,
 				4595BA3626119B9200EAC14B /* Supporting Files */,
 				4595BA3526119B8900EAC14B /* Resources */,
@@ -110,6 +119,30 @@
 				4595BA3B26119C0A00EAC14B /* HomeVC.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4595BA422611A1A800EAC14B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4595BA432611A1DC00EAC14B /* AnimalsTVCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4595BA462611A1FF00EAC14B /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				4595BA472611A20F00EAC14B /* Identify+Enum.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		4595BA4A2611A83E00EAC14B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4595BA4B2611A84D00EAC14B /* Animal.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C61C8C60BD5DC1524A410EB3 /* Frameworks */ = {
@@ -234,8 +267,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4595BA3C26119C0A00EAC14B /* HomeVC.swift in Sources */,
+				4595BA482611A20F00EAC14B /* Identify+Enum.swift in Sources */,
+				4595BA442611A1DC00EAC14B /* AnimalsTVCell.swift in Sources */,
 				4595BA1D26119AE800EAC14B /* AppDelegate.swift in Sources */,
 				4595BA1F26119AE800EAC14B /* SceneDelegate.swift in Sources */,
+				4595BA4C2611A84D00EAC14B /* Animal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
