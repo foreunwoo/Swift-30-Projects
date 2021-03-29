@@ -1,0 +1,6 @@
+framework module Pods_AnimalSearch {
+  umbrella header "Pods-AnimalSearch-umbrella.h"
+
+  export *
+  module * { export * }
+}
