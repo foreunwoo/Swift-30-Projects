@@ -13,7 +13,7 @@ class HomeVC: UIViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
     
-    let animalsTableView = UITableView()
+    let animalsTableView = UITableView(frame: .zero, style: .grouped)
         
     var animalList = [Animal]()
     var filteredList = [Animal]()
@@ -24,6 +24,8 @@ class HomeVC: UIViewController {
         let isSearchBarHasText = searchController?.searchBar.text?.isEmpty == false
         return isActive && isSearchBarHasText
     }
+    
+    let sections = ["포유류", "양서류", "파충류", "조류" ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,10 +90,50 @@ class HomeVC: UIViewController {
         animalList.append(Animal("왜가리", .d))
         animalList.append(Animal("타조", .d))
     }
+    
+    func sectionTypeDidMatched(section: Int, list: [Animal]) -> Int {
+        var count = 0
+        
+        for animal in list {
+            if animal.type == .a && section == 0 {
+                count += 1
+            } else if animal.type == .b && section == 1 {
+                count += 1
+            } else if animal.type == .c && section == 2 {
+                count += 1
+            } else if animal.type == .d && section == 3 {
+                count += 1
+            }
+        }
+        
+        return count
+    }
 
+    func typeDidMatched(section: Int, list: [Animal]) -> [Animal] {
+        switch section {
+        case 0:
+            return list.filter { $0.type == .a }
+        case 1:
+            return list.filter { $0.type == .b }
+        case 2:
+            return list.filter { $0.type == .c }
+        case 3:
+            return list.filter { $0.type == .d }
+        default:
+            return list
+        }
+    }
 }
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section]
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
@@ -102,20 +144,28 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isFiltering ? filteredList.count : animalList.count
+        
+        if isFiltering {
+            return sectionTypeDidMatched(section: section, list: filteredList)
+        } else {
+            return sectionTypeDidMatched(section: section, list: animalList)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cell")
         cell.selectionStyle = .none
+                
+        var tempList = [Animal]()
         
         if isFiltering {
-            cell.textLabel?.text = filteredList[indexPath.row].name
-            cell.detailTextLabel?.text = filteredList[indexPath.row].type.rawValue
+            tempList = typeDidMatched(section: indexPath.section, list: filteredList)
         } else {
-            cell.textLabel?.text = animalList[indexPath.row].name
-            cell.detailTextLabel?.text = animalList[indexPath.row].type.rawValue
+            tempList = typeDidMatched(section: indexPath.section, list: animalList)
+
         }
+        cell.textLabel?.text = tempList[indexPath.row].name
+        cell.detailTextLabel?.text = tempList[indexPath.row].type.rawValue
         
         return cell
     }
