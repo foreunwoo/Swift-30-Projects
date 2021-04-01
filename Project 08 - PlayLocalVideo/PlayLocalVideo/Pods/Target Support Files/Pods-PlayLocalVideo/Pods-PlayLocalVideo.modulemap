@@ -1,0 +1,6 @@
+framework module Pods_PlayLocalVideo {
+  umbrella header "Pods-PlayLocalVideo-umbrella.h"
+
+  export *
+  module * { export * }
+}
