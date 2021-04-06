@@ -3,16 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		458CF102261C8EE300DC54C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458CF101261C8EE300DC54C1 /* AppDelegate.swift */; };
 		458CF104261C8EE300DC54C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458CF103261C8EE300DC54C1 /* SceneDelegate.swift */; };
-		458CF106261C8EE300DC54C1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458CF105261C8EE300DC54C1 /* ContentView.swift */; };
 		458CF108261C8EE400DC54C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 458CF107261C8EE400DC54C1 /* Assets.xcassets */; };
-		458CF10B261C8EE400DC54C1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 458CF10A261C8EE400DC54C1 /* Preview Assets.xcassets */; };
 		458CF10E261C8EE400DC54C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 458CF10C261C8EE400DC54C1 /* LaunchScreen.storyboard */; };
+		458CF124261C917E00DC54C1 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458CF123261C917E00DC54C1 /* MainVC.swift */; };
+		458CF129261C947800DC54C1 /* MainFeedTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458CF128261C947800DC54C1 /* MainFeedTVCell.swift */; };
+		458CF12D261C96D200DC54C1 /* cat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 458CF12C261C96D200DC54C1 /* cat.jpeg */; };
+		458CF132261CA91300DC54C1 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458CF131261CA91300DC54C1 /* UIColor+Extension.swift */; };
 		C4FDBF67B00856AE152639D8 /* Pods_EunwooBird.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F3F7B1B21088B9ABE1047D /* Pods_EunwooBird.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,11 +24,13 @@
 		458CF0FE261C8EE300DC54C1 /* EunwooBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EunwooBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		458CF101261C8EE300DC54C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		458CF103261C8EE300DC54C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		458CF105261C8EE300DC54C1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		458CF107261C8EE400DC54C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		458CF10A261C8EE400DC54C1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		458CF10D261C8EE400DC54C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		458CF10F261C8EE400DC54C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		458CF123261C917E00DC54C1 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		458CF128261C947800DC54C1 /* MainFeedTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedTVCell.swift; sourceTree = "<group>"; };
+		458CF12C261C96D200DC54C1 /* cat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat.jpeg; sourceTree = "<group>"; };
+		458CF131261CA91300DC54C1 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		47DF6E7ABA6670EF3335A009 /* Pods-EunwooBird.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EunwooBird.debug.xcconfig"; path = "Target Support Files/Pods-EunwooBird/Pods-EunwooBird.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,23 +75,65 @@
 		458CF100261C8EE300DC54C1 /* EunwooBird */ = {
 			isa = PBXGroup;
 			children = (
-				458CF101261C8EE300DC54C1 /* AppDelegate.swift */,
-				458CF103261C8EE300DC54C1 /* SceneDelegate.swift */,
-				458CF105261C8EE300DC54C1 /* ContentView.swift */,
-				458CF107261C8EE400DC54C1 /* Assets.xcassets */,
+				458CF130261CA8D400DC54C1 /* Extensions */,
+				458CF12C261C96D200DC54C1 /* cat.jpeg */,
+				458CF127261C945800DC54C1 /* Views */,
+				458CF122261C915500DC54C1 /* Controllers */,
+				458CF121261C914400DC54C1 /* Supporting Files */,
+				458CF120261C913800DC54C1 /* Resources */,
+				458CF11E261C912E00DC54C1 /* Delegate */,
 				458CF10C261C8EE400DC54C1 /* LaunchScreen.storyboard */,
-				458CF10F261C8EE400DC54C1 /* Info.plist */,
-				458CF109261C8EE400DC54C1 /* Preview Content */,
 			);
 			path = EunwooBird;
 			sourceTree = "<group>";
 		};
-		458CF109261C8EE400DC54C1 /* Preview Content */ = {
+		458CF11E261C912E00DC54C1 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				458CF10A261C8EE400DC54C1 /* Preview Assets.xcassets */,
+				458CF101261C8EE300DC54C1 /* AppDelegate.swift */,
+				458CF103261C8EE300DC54C1 /* SceneDelegate.swift */,
 			);
-			path = "Preview Content";
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		458CF120261C913800DC54C1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				458CF107261C8EE400DC54C1 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		458CF121261C914400DC54C1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				458CF10F261C8EE400DC54C1 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		458CF122261C915500DC54C1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				458CF123261C917E00DC54C1 /* MainVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		458CF127261C945800DC54C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				458CF128261C947800DC54C1 /* MainFeedTVCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		458CF130261CA8D400DC54C1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				458CF131261CA91300DC54C1 /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D5FA5D14F6707962BFC84CBD /* Pods */ = {
@@ -96,7 +142,6 @@
 				47DF6E7ABA6670EF3335A009 /* Pods-EunwooBird.debug.xcconfig */,
 				26D18F6E69AACFE1E0BBBC9A /* Pods-EunwooBird.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -160,8 +205,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				458CF10E261C8EE400DC54C1 /* LaunchScreen.storyboard in Resources */,
-				458CF10B261C8EE400DC54C1 /* Preview Assets.xcassets in Resources */,
 				458CF108261C8EE400DC54C1 /* Assets.xcassets in Resources */,
+				458CF12D261C96D200DC54C1 /* cat.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,8 +260,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				458CF102261C8EE300DC54C1 /* AppDelegate.swift in Sources */,
+				458CF124261C917E00DC54C1 /* MainVC.swift in Sources */,
+				458CF129261C947800DC54C1 /* MainFeedTVCell.swift in Sources */,
 				458CF104261C8EE300DC54C1 /* SceneDelegate.swift in Sources */,
-				458CF106261C8EE300DC54C1 /* ContentView.swift in Sources */,
+				458CF132261CA91300DC54C1 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,9 +404,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"EunwooBird/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = EunwooBird/Info.plist;
+				INFOPLIST_FILE = "EunwooBird/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,9 +425,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"EunwooBird/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = EunwooBird/Info.plist;
+				INFOPLIST_FILE = "EunwooBird/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
