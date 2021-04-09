@@ -19,6 +19,11 @@ class MainFeedTVCell: UITableViewCell {
     let moreButton = UIButton()
     
     let contentTextView = UITextView()
+    
+    let messageButton = UIButton()
+    let retweetButton = UIButton()
+    let likeButton = UIButton()
+    let shareButton = UIButton()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -83,6 +88,65 @@ class MainFeedTVCell: UITableViewCell {
             $0.backgroundColor = .birdNavy
             $0.textColor = .white
         }
+        
+        _ = messageButton.then {
+            $0.contentHorizontalAlignment = .left
+            $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
+            
+            $0.setImage(UIImage(systemName: "message"), for: .normal)
+            
+            $0.tintColor = .lightGray
+            
+            $0.setTitle("73", for: .normal)
+            $0.setTitleColor(.lightGray, for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 13)
+        }
+        _ = retweetButton.then {
+            $0.contentHorizontalAlignment = .left
+            $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
+            
+            $0.setImage(UIImage(systemName: "arrow.2.squarepath"), for: .normal)
+            
+            $0.tintColor = .lightGray
+            
+            $0.setTitle("15.6k", for: .normal)
+            $0.setTitleColor(.lightGray, for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 13)
+        }
+        _ = likeButton.then {
+            $0.contentHorizontalAlignment = .left
+            $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
+            
+            $0.setImage(UIImage(systemName: "heart"), for: .normal)
+            $0.setImage(UIImage(systemName: "heart.fill"), for: .selected)
+
+            $0.tintColor = .lightGray
+            
+            $0.setTitle("13.2k", for: .normal)
+            $0.setTitleColor(.lightGray, for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 13)
+            
+            $0.addTarget(self, action: #selector(likeButtonDidTap(_:)), for: .touchUpInside)
+        }
+        _ = shareButton.then {
+            $0.contentHorizontalAlignment = .left
+            
+            $0.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
+            
+            $0.tintColor = .lightGray
+        }
+    }
+    
+    @objc func likeButtonDidTap(_ sender: UIButton) {
+        if likeButton.isSelected {
+            likeButton.isSelected = false
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            likeButton.tintColor = .lightGray
+        } else {
+            likeButton.isSelected = true
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .selected)
+            likeButton.tintColor = .systemPink
+        }
     }
     
     func makeConstraints() {
@@ -94,6 +158,11 @@ class MainFeedTVCell: UITableViewCell {
         contentView.addSubview(moreButton)
         
         contentView.addSubview(contentTextView)
+        
+        contentView.addSubview(messageButton)
+        contentView.addSubview(retweetButton)
+        contentView.addSubview(likeButton)
+        contentView.addSubview(shareButton)
         
         profileImageView.snp.makeConstraints {
             $0.width.equalTo(58)
@@ -130,7 +199,36 @@ class MainFeedTVCell: UITableViewCell {
             $0.top.equalTo(nicknameLabel.snp.bottom).offset(5)
             $0.left.equalTo(nicknameLabel.snp.left)
             $0.right.equalTo(contentView.snp.right).offset(-10)
+        }
+        
+        messageButton.snp.makeConstraints {
+            $0.width.equalTo(80)
+            $0.height.equalTo(18)
+            
+            $0.top.equalTo(contentTextView.snp.bottom).offset(10)
+            $0.left.equalTo(contentTextView.snp.left)
             $0.bottom.equalTo(contentView.snp.bottom).inset(10)
+        }
+        retweetButton.snp.makeConstraints {
+            $0.width.equalTo(80)
+            $0.height.equalTo(18)
+            
+            $0.left.equalTo(messageButton.snp.right)
+            $0.centerY.equalTo(messageButton)
+        }
+        likeButton.snp.makeConstraints {
+            $0.width.equalTo(80)
+            $0.height.equalTo(18)
+            
+            $0.left.equalTo(retweetButton.snp.right)
+            $0.centerY.equalTo(retweetButton)
+        }
+        shareButton.snp.makeConstraints {
+            $0.width.equalTo(80)
+            $0.height.equalTo(18)
+            
+            $0.left.equalTo(likeButton.snp.right)
+            $0.centerY.equalTo(likeButton)
         }
     }
 }
