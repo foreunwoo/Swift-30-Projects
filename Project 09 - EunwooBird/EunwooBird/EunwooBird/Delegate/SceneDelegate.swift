@@ -19,15 +19,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let mainVC = MainVC()
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        
+        let tabBarController = TabBarController()
+        let navigationController = UINavigationController(rootViewController: tabBarController)
+        navigationController.navigationBar.barTintColor = .birdNavy
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
 
-        // Use a UIHostingController as window root view controller.
-        if let windowScene = scene as? UIWindowScene {
-            let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UINavigationController(rootViewController: mainVC)
-            self.window = window
-            window.makeKeyAndVisible()
-        }
+        navigationController.navigationBar.topItem?.title = "EunwooBird"
+        
+        window?.rootViewController = navigationController
+        
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

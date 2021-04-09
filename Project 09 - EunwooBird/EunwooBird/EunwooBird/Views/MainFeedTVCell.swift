@@ -66,14 +66,17 @@ class MainFeedTVCell: UITableViewCell {
             $0.contentHorizontalAlignment = .left
             $0.setImage(UIImage(systemName: "ellipsis"), for: .normal)
             $0.tintColor = .lightGray
+            
+            $0.alpha = 0.7
         }
         
         _ = contentTextView.then {
-            $0.text = "어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구"
+            $0.text = "어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구 어쩌구저쩌구"
             $0.font = .systemFont(ofSize: 15)
             $0.isScrollEnabled = false
             $0.isUserInteractionEnabled = false
             
+            $0.textContainer.maximumNumberOfLines = 3
             $0.textContainer.lineFragmentPadding = 0
             $0.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             
@@ -116,11 +119,11 @@ class MainFeedTVCell: UITableViewCell {
         }
         
         moreButton.snp.makeConstraints {
-            $0.width.equalTo(40)
+            $0.width.equalTo(28)
             $0.height.equalTo(moreButton.snp.width)
             
             $0.centerY.equalTo(dateLabel)
-            $0.right.equalTo(contentView.snp.right).offset(10)
+            $0.right.equalTo(contentView.snp.right).offset(-5)
         }
         
         contentTextView.snp.makeConstraints {

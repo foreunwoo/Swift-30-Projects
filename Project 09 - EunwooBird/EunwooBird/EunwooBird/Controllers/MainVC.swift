@@ -17,18 +17,20 @@ class MainVC: UIViewController {
         super.viewDidLoad()
 
         self.view.backgroundColor = .birdNavy
-        
-        setNavigationBar()
-        
+                
         setTableView()
     }
     
-    func setNavigationBar() {
-        self.navigationController?.navigationBar.barTintColor = .birdNavy
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-
-        self.navigationItem.title = "EunwooBird"
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
     }
     
     func setTableView() {

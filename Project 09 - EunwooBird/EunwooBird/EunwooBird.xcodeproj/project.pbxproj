@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4586D09C26208CB300A6F30B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4586D09B26208CB300A6F30B /* TabBarController.swift */; };
+		4586D0A026208F2200A6F30B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4586D09F26208F2200A6F30B /* SearchVC.swift */; };
+		4586D0A326208F3A00A6F30B /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4586D0A226208F3A00A6F30B /* NotificationVC.swift */; };
+		4586D0A626208F5800A6F30B /* MessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4586D0A526208F5800A6F30B /* MessageVC.swift */; };
 		458CF102261C8EE300DC54C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458CF101261C8EE300DC54C1 /* AppDelegate.swift */; };
 		458CF104261C8EE300DC54C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458CF103261C8EE300DC54C1 /* SceneDelegate.swift */; };
 		458CF108261C8EE400DC54C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 458CF107261C8EE400DC54C1 /* Assets.xcassets */; };
@@ -21,6 +25,10 @@
 /* Begin PBXFileReference section */
 		26D18F6E69AACFE1E0BBBC9A /* Pods-EunwooBird.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EunwooBird.release.xcconfig"; path = "Target Support Files/Pods-EunwooBird/Pods-EunwooBird.release.xcconfig"; sourceTree = "<group>"; };
 		40F3F7B1B21088B9ABE1047D /* Pods_EunwooBird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EunwooBird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4586D09B26208CB300A6F30B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		4586D09F26208F2200A6F30B /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		4586D0A226208F3A00A6F30B /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
+		4586D0A526208F5800A6F30B /* MessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageVC.swift; sourceTree = "<group>"; };
 		458CF0FE261C8EE300DC54C1 /* EunwooBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EunwooBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		458CF101261C8EE300DC54C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		458CF103261C8EE300DC54C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +62,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4586D0A82620970B00A6F30B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				458CF12C261C96D200DC54C1 /* cat.jpeg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		458CF0F5261C8EE300DC54C1 = {
 			isa = PBXGroup;
 			children = (
@@ -75,8 +91,8 @@
 		458CF100261C8EE300DC54C1 /* EunwooBird */ = {
 			isa = PBXGroup;
 			children = (
+				4586D0A82620970B00A6F30B /* Images */,
 				458CF130261CA8D400DC54C1 /* Extensions */,
-				458CF12C261C96D200DC54C1 /* cat.jpeg */,
 				458CF127261C945800DC54C1 /* Views */,
 				458CF122261C915500DC54C1 /* Controllers */,
 				458CF121261C914400DC54C1 /* Supporting Files */,
@@ -116,6 +132,10 @@
 			isa = PBXGroup;
 			children = (
 				458CF123261C917E00DC54C1 /* MainVC.swift */,
+				4586D09B26208CB300A6F30B /* TabBarController.swift */,
+				4586D09F26208F2200A6F30B /* SearchVC.swift */,
+				4586D0A226208F3A00A6F30B /* NotificationVC.swift */,
+				4586D0A526208F5800A6F30B /* MessageVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -260,10 +280,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				458CF102261C8EE300DC54C1 /* AppDelegate.swift in Sources */,
+				4586D0A626208F5800A6F30B /* MessageVC.swift in Sources */,
+				4586D09C26208CB300A6F30B /* TabBarController.swift in Sources */,
 				458CF124261C917E00DC54C1 /* MainVC.swift in Sources */,
 				458CF129261C947800DC54C1 /* MainFeedTVCell.swift in Sources */,
 				458CF104261C8EE300DC54C1 /* SceneDelegate.swift in Sources */,
 				458CF132261CA91300DC54C1 /* UIColor+Extension.swift in Sources */,
+				4586D0A026208F2200A6F30B /* SearchVC.swift in Sources */,
+				4586D0A326208F3A00A6F30B /* NotificationVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
