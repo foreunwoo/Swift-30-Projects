@@ -63,6 +63,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainFeedTVCell", for: indexPath) as! MainFeedTVCell
+        cell.selectionStyle = .none
         
         return cell
     }
