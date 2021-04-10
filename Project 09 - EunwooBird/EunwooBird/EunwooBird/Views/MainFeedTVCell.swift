@@ -25,6 +25,8 @@ class MainFeedTVCell: UITableViewCell {
     let retweetButton = UIButton()
     let likeButton = UIButton()
     let shareButton = UIButton()
+    
+    var twit: Twit?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -90,7 +92,7 @@ class MainFeedTVCell: UITableViewCell {
             $0.textColor = .white
         }
         _ = contentImageView.then {
-            $0.layer.cornerRadius = 0.2
+            $0.layer.cornerRadius = 10
             $0.contentMode = .scaleAspectFill
             $0.clipsToBounds = true
             
@@ -134,7 +136,7 @@ class MainFeedTVCell: UITableViewCell {
             $0.setTitleColor(.lightGray, for: .normal)
             $0.titleLabel?.font = .systemFont(ofSize: 13)
             
-            $0.addTarget(self, action: #selector(likeButtonDidTap(_:)), for: .touchUpInside)
+            //$0.addTarget(self, action: #selector(likeButtonDidTap(_:)), for: .touchUpInside)
         }
         _ = shareButton.then {
             $0.contentHorizontalAlignment = .left
@@ -145,17 +147,17 @@ class MainFeedTVCell: UITableViewCell {
         }
     }
     
-    @objc func likeButtonDidTap(_ sender: UIButton) {
-        if likeButton.isSelected {
-            likeButton.isSelected = false
-            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            likeButton.tintColor = .lightGray
-        } else {
-            likeButton.isSelected = true
-            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .selected)
-            likeButton.tintColor = .systemPink
-        }
-    }
+//    @objc func likeButtonDidTap(_ sender: UIButton) {
+//        if likeButton.isSelected {
+//            likeButton.isSelected = false
+//            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+//            likeButton.tintColor = .lightGray
+//        } else {
+//            likeButton.isSelected = true
+//            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .selected)
+//            likeButton.tintColor = .systemPink
+//        }
+//    }
     
     func makeConstraints() {
         contentView.addSubview(profileImageView)
@@ -210,9 +212,9 @@ class MainFeedTVCell: UITableViewCell {
             $0.right.equalTo(contentView.snp.right).offset(-10)
         }
         contentImageView.snp.makeConstraints {
-            $0.height.equalTo(150)
+            $0.height.equalTo(170)
             
-            $0.top.equalTo(contentTextView.snp.bottom).offset(5)
+            $0.top.equalTo(contentTextView.snp.bottom).offset(10)
             $0.left.equalTo(contentTextView.snp.left)
             $0.right.equalTo(moreButton.snp.right)
         }
@@ -245,6 +247,39 @@ class MainFeedTVCell: UITableViewCell {
             
             $0.left.equalTo(likeButton.snp.right)
             $0.centerY.equalTo(likeButton)
+        }
+    }
+    
+    func fillDataToView() { // 프로필, 닉네임, 날짜, 아이디, 내용, 사진, 메시지,리트윗,좋아요 카운트
+        profileImageView.image = UIImage(named: twit?.profileImage ?? "")
+    
+        nicknameLabel.text = twit?.nickname
+        dateLabel.text = "‧ \(String(describing: twit?.date ?? ""))"
+        idLabel.text = twit?.id
+        
+        contentTextView.text = twit?.content
+        if twit?.contentImage == "" {
+            contentImageView.snp.updateConstraints {
+                $0.height.equalTo(0)
+                
+                $0.top.equalTo(contentTextView.snp.bottom).offset(10)
+                $0.left.equalTo(contentTextView.snp.left)
+                $0.right.equalTo(moreButton.snp.right)
+            }
+        } else {
+            contentImageView.image = UIImage(named: twit?.contentImage ?? "")
+        }
+        
+        messageButton.setTitle(twit?.messageCount, for: .normal)
+        retweetButton.setTitle(twit?.retweetCount, for: .normal)
+        likeButton.setTitle(twit?.likeCount, for: .normal)
+
+        if twit?.likeStatus == .isLiked {
+            likeButton.isSelected = true
+            likeButton.tintColor = .systemPink
+        } else {
+            likeButton.isSelected = false
+            likeButton.tintColor = .lightGray
         }
     }
 }
