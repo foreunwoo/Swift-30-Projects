@@ -126,6 +126,7 @@ class MainFeedTVCell: UITableViewCell {
         _ = likeButton.then {
             $0.contentHorizontalAlignment = .left
             $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
+            $0.isUserInteractionEnabled = false
             
             $0.setImage(UIImage(systemName: "heart"), for: .normal)
             $0.setImage(UIImage(systemName: "heart.fill"), for: .selected)
