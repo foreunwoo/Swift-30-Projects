@@ -19,6 +19,7 @@ class MainFeedTVCell: UITableViewCell {
     let moreButton = UIButton()
     
     let contentTextView = UITextView()
+    let contentImageView = UIImageView()
     
     let messageButton = UIButton()
     let retweetButton = UIButton()
@@ -68,9 +69,9 @@ class MainFeedTVCell: UITableViewCell {
         }
         
         _ = moreButton.then {
-            $0.contentHorizontalAlignment = .left
             $0.setImage(UIImage(systemName: "ellipsis"), for: .normal)
             $0.tintColor = .lightGray
+            $0.contentHorizontalAlignment = .fill
             
             $0.alpha = 0.7
         }
@@ -87,6 +88,13 @@ class MainFeedTVCell: UITableViewCell {
             
             $0.backgroundColor = .birdNavy
             $0.textColor = .white
+        }
+        _ = contentImageView.then {
+            $0.layer.cornerRadius = 0.2
+            $0.contentMode = .scaleAspectFill
+            $0.clipsToBounds = true
+            
+            $0.image = UIImage(named: "cat.jpeg")
         }
         
         _ = messageButton.then {
@@ -158,6 +166,7 @@ class MainFeedTVCell: UITableViewCell {
         contentView.addSubview(moreButton)
         
         contentView.addSubview(contentTextView)
+        contentView.addSubview(contentImageView)
         
         contentView.addSubview(messageButton)
         contentView.addSubview(retweetButton)
@@ -188,11 +197,11 @@ class MainFeedTVCell: UITableViewCell {
         }
         
         moreButton.snp.makeConstraints {
-            $0.width.equalTo(28)
+            $0.width.equalTo(15)
             $0.height.equalTo(moreButton.snp.width)
             
             $0.centerY.equalTo(dateLabel)
-            $0.right.equalTo(contentView.snp.right).offset(-5)
+            $0.right.equalTo(contentView.snp.right).offset(-10)
         }
         
         contentTextView.snp.makeConstraints {
@@ -200,13 +209,20 @@ class MainFeedTVCell: UITableViewCell {
             $0.left.equalTo(nicknameLabel.snp.left)
             $0.right.equalTo(contentView.snp.right).offset(-10)
         }
+        contentImageView.snp.makeConstraints {
+            $0.height.equalTo(150)
+            
+            $0.top.equalTo(contentTextView.snp.bottom).offset(5)
+            $0.left.equalTo(contentTextView.snp.left)
+            $0.right.equalTo(moreButton.snp.right)
+        }
         
         messageButton.snp.makeConstraints {
             $0.width.equalTo(80)
             $0.height.equalTo(18)
             
-            $0.top.equalTo(contentTextView.snp.bottom).offset(10)
-            $0.left.equalTo(contentTextView.snp.left)
+            $0.top.equalTo(contentImageView.snp.bottom).offset(10)
+            $0.left.equalTo(contentImageView.snp.left)
             $0.bottom.equalTo(contentView.snp.bottom).inset(10)
         }
         retweetButton.snp.makeConstraints {
