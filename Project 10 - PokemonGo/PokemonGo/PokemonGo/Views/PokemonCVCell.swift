@@ -84,9 +84,17 @@ class PokemonCVCell: UICollectionViewCell {
         
         nameLabel.text = monster?.name
         
-        var backgroundColor: UIColor?
+        firstTypeButton.backgroundColor = setBackgroundColor(type: monster?.oneType ?? "")
+        firstTypeButton.setTitle(monster?.oneType, for: .normal)
+                
+        secondTypeButton.backgroundColor = setBackgroundColor(type: monster?.twoType ?? "")
+        secondTypeButton.setTitle(monster?.twoType, for: .normal)
+    }
+    
+    func setBackgroundColor(type: String) -> UIColor {
+        var backgroundColor: UIColor
         
-        switch monster?.oneType {
+        switch type {
         case "풀":
             backgroundColor = .green
         case "벌레":
@@ -102,49 +110,17 @@ class PokemonCVCell: UICollectionViewCell {
         case "페어리":
             backgroundColor = .systemPink
         case "전기":
-            backgroundColor = .yellow
+            backgroundColor = .systemYellow
         case "땅":
             backgroundColor = .brown
         case "독":
-            backgroundColor = .purple
+            backgroundColor = .systemPurple
         case "강철":
             backgroundColor = .systemIndigo
         default:
-            break
+            backgroundColor = .white
         }
-        firstTypeButton.backgroundColor = backgroundColor
-        firstTypeButton.setTitle(monster?.oneType, for: .normal)
         
-        var color: UIColor?
-        
-        switch monster?.twoType {
-        case "풀":
-            color = .green
-        case "벌레":
-            color = .systemGreen
-        case "비행":
-            color = .systemBlue
-        case "불꽃":
-            color = .systemOrange
-        case "노말":
-            color = .systemGray
-        case "물":
-            color = .blue
-        case "페어리":
-            color = .systemPink
-        case "전기":
-            color = .yellow
-        case "땅":
-            color = .brown
-        case "독":
-            color = .systemPurple
-        case "강철":
-            color = .systemIndigo
-        default:
-            break
-        }
-        secondTypeButton.backgroundColor = color
-        secondTypeButton.setTitle(monster?.twoType, for: .normal)
-        
+        return backgroundColor
     }
 }
