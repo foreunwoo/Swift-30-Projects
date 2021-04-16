@@ -22,15 +22,19 @@ class PokemonCVCell: UICollectionViewCell {
     let firstTypeButton = UIButton().then {
         $0.tintColor = .white
         $0.setTitle("풀", for: .normal)
+        $0.titleLabel?.font = .boldSystemFont(ofSize: 15)
         $0.titleLabel?.textAlignment = .center
         $0.backgroundColor = .systemGreen
     }
     let secondTypeButton = UIButton().then {
         $0.tintColor = .white
         $0.setTitle("독", for: .normal)
+        $0.titleLabel?.font = .boldSystemFont(ofSize: 15)
         $0.titleLabel?.textAlignment = .center
         $0.backgroundColor = .purple
     }
+    
+    var monster: Monster?
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -62,7 +66,7 @@ class PokemonCVCell: UICollectionViewCell {
         }
         
         firstTypeButton.snp.makeConstraints {
-            $0.width.equalTo(UIScreen.main.bounds.width / 6)
+            $0.width.equalTo(UIScreen.main.bounds.width / 6 - 5)
             
             $0.top.equalTo(nameLabel.snp.bottom).offset(5)
             $0.left.equalTo(monsterImageView.snp.left)
@@ -73,5 +77,74 @@ class PokemonCVCell: UICollectionViewCell {
             $0.right.equalTo(monsterImageView.snp.right)
             $0.centerY.equalTo(firstTypeButton)
         }
+    }
+    
+    func fillDataToView() {
+        monsterImageView.image = UIImage(named: "\(monster?.name ?? "").png")
+        
+        nameLabel.text = monster?.name
+        
+        var backgroundColor: UIColor?
+        
+        switch monster?.oneType {
+        case "풀":
+            backgroundColor = .green
+        case "벌레":
+            backgroundColor = .systemGreen
+        case "비행":
+            backgroundColor = .systemBlue
+        case "불꽃":
+            backgroundColor = .systemOrange
+        case "노말":
+            backgroundColor = .systemGray
+        case "물":
+            backgroundColor = .blue
+        case "페어리":
+            backgroundColor = .systemPink
+        case "전기":
+            backgroundColor = .yellow
+        case "땅":
+            backgroundColor = .brown
+        case "독":
+            backgroundColor = .purple
+        case "강철":
+            backgroundColor = .systemIndigo
+        default:
+            break
+        }
+        firstTypeButton.backgroundColor = backgroundColor
+        firstTypeButton.setTitle(monster?.oneType, for: .normal)
+        
+        var color: UIColor?
+        
+        switch monster?.twoType {
+        case "풀":
+            color = .green
+        case "벌레":
+            color = .systemGreen
+        case "비행":
+            color = .systemBlue
+        case "불꽃":
+            color = .systemOrange
+        case "노말":
+            color = .systemGray
+        case "물":
+            color = .blue
+        case "페어리":
+            color = .systemPink
+        case "전기":
+            color = .yellow
+        case "땅":
+            color = .brown
+        case "독":
+            color = .systemPurple
+        case "강철":
+            color = .systemIndigo
+        default:
+            break
+        }
+        secondTypeButton.backgroundColor = color
+        secondTypeButton.setTitle(monster?.twoType, for: .normal)
+        
     }
 }
