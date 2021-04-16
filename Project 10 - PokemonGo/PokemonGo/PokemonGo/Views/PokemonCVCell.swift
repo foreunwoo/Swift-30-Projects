@@ -47,6 +47,11 @@ class PokemonCVCell: UICollectionViewCell {
     }
     
     func makeConstraints() {
+        contentView.layer.borderColor = UIColor.gray.cgColor
+        contentView.layer.borderWidth = 1.0
+        contentView.layer.cornerRadius = 10
+        contentView.clipsToBounds = true
+        
         contentView.addSubview(monsterImageView)
         contentView.addSubview(nameLabel)
         
