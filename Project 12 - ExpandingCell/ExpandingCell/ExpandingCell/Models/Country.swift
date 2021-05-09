@@ -17,6 +17,6 @@ struct Country {
         self.name = name
         self.flag = flag
         self.information = information
-        self.isExpanded = false
+        self.isExpanded = isExpanded
     }
 }

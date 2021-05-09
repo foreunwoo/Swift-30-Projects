@@ -12,6 +12,8 @@ import Then
 class MainVC: UIViewController {
     
     let countryTableView = UITableView(frame: .zero, style: .insetGrouped)
+    
+    var countries: [Country] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,7 @@ class MainVC: UIViewController {
         self.navigationItem.title = "ExpandingCell"
         
         setTableView()
+        setData()
     }
     
     func setTableView() {
@@ -38,29 +41,51 @@ class MainVC: UIViewController {
             }
         }
     }
+    
+    func setData() {
+        countries.append(Country(name: "대한민국", flag: "Korea.png", information: "", isExpanded: false))
+        countries.append(Country(name: "인도", flag: "India.png", information: "", isExpanded: false))
+        countries.append(Country(name: "태국", flag: "Thailand.png", information: "", isExpanded: false))
+        
+        countries.append(Country(name: "프랑스", flag: "France.png", information: "", isExpanded: false))
+        countries.append(Country(name: "이탈리아", flag: "Italia.png", information: "", isExpanded: false))
+        countries.append(Country(name: "영국", flag: "Uk.png", information: "", isExpanded: false))
+        
+        countries.append(Country(name: "케냐", flag: "Kenya.png", information: "", isExpanded: false))
+        countries.append(Country(name: "가나", flag: "Ghana.png", information: "", isExpanded: false))
+    }
 
 }
 
 extension MainVC: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        countries[indexPath.row].isExpanded = !countries[indexPath.row].isExpanded
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
 }
 
 extension MainVC: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return countries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContryTVCell", for: indexPath) as! ContryTVCell
+        
+        cell.selectionStyle = .none
+        cell.country = countries[indexPath.row]
+        cell.fetchData()
         
         return cell
     }
