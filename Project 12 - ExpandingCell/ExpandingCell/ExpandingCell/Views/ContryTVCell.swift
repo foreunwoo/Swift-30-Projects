@@ -18,10 +18,11 @@ class ContryTVCell: UITableViewCell {
     let informationTextView = UITextView().then {
         $0.font = .systemFont(ofSize: 15)
         
+        $0.isEditable = false
+        
         $0.sizeToFit()
         $0.translatesAutoresizingMaskIntoConstraints = true
         $0.isScrollEnabled = false
-        $0.isEditable = false
     }
     
     let arrowButton = UIButton().then {
@@ -87,10 +88,6 @@ class ContryTVCell: UITableViewCell {
             
             flagImageView.snp.updateConstraints {
                 $0.height.equalTo(170)
-                
-                $0.top.equalTo(nameLabel.snp.bottom).offset(10)
-                $0.left.equalTo(contentView.snp.left).offset(10)
-                $0.right.equalTo(contentView.snp.right).inset(10)
             }
             
         } else {
@@ -98,10 +95,6 @@ class ContryTVCell: UITableViewCell {
             
             flagImageView.snp.updateConstraints {
                 $0.height.equalTo(0)
-                
-                $0.top.equalTo(nameLabel.snp.bottom).offset(10)
-                $0.left.equalTo(contentView.snp.left).offset(10)
-                $0.right.equalTo(contentView.snp.right).inset(10)
             }
             
         }
