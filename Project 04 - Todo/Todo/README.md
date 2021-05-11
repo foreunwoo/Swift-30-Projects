@@ -1,7 +1,7 @@
 # Todo
 ## ScreenShot
 ![Todo](https://user-images.githubusercontent.com/57670228/112278090-cb2b7180-8cc5-11eb-9e87-4a1cc98b9254.gif)
-## 회고
+## 얻은 것
 ### Model
 코드를 좀 더 객체 지향적으로 짤 수 있는 방법을 생각해 보다가
 셀 안에 넣을 세 개의 라벨을 넘겨 받기 위해 Plan이라는 구조체를 만들고, 
