@@ -12,6 +12,7 @@
 		453992E7265F5A9C00736A87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453992E6265F5A9C00736A87 /* Assets.xcassets */; };
 		453992ED265F5A9C00736A87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453992EB265F5A9C00736A87 /* LaunchScreen.storyboard */; };
 		45E2FB19265F5C9400B6B81C /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E2FB18265F5C9400B6B81C /* HomeVC.swift */; };
+		45E2FB1F265F685700B6B81C /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E2FB1E265F685700B6B81C /* TranslationService.swift */; };
 		F857B52C6F917292353012E5 /* Pods_TranslationSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A503785B6B123D7F13EC585 /* Pods_TranslationSystem.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		453992EC265F5A9C00736A87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		453992EE265F5A9C00736A87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45E2FB18265F5C9400B6B81C /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		45E2FB1E265F685700B6B81C /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 		6A503785B6B123D7F13EC585 /* Pods_TranslationSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TranslationSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF80C797B921F7F2AA29489 /* Pods-TranslationSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranslationSystem.release.xcconfig"; path = "Target Support Files/Pods-TranslationSystem/Pods-TranslationSystem.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +80,7 @@
 		453992DF265F5A9B00736A87 /* TranslationSystem */ = {
 			isa = PBXGroup;
 			children = (
+				45E2FB1D265F683200B6B81C /* Services */,
 				45E2FB17265F5C6400B6B81C /* Controllers */,
 				45E2FB15265F5C5400B6B81C /* Resources */,
 				45E2FB14265F5C4500B6B81C /* Supporting Files */,
@@ -118,6 +121,14 @@
 				45E2FB18265F5C9400B6B81C /* HomeVC.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		45E2FB1D265F683200B6B81C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				45E2FB1E265F685700B6B81C /* TranslationService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +247,7 @@
 				45E2FB19265F5C9400B6B81C /* HomeVC.swift in Sources */,
 				453992E1265F5A9B00736A87 /* AppDelegate.swift in Sources */,
 				453992E3265F5A9B00736A87 /* SceneDelegate.swift in Sources */,
+				45E2FB1F265F685700B6B81C /* TranslationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
