@@ -10,6 +10,8 @@ import Alamofire
 
 class TranslationService {
     
+    static let shared = TranslationService()
+    
     // MARK: - 번역기 서버 통신
     
     func postTranslate(_ source: String, _ target: String, _ text: String, completion: @escaping (NetworkResult<Any>) -> Void) {
@@ -17,7 +19,6 @@ class TranslationService {
         let URL = "https://openapi.naver.com/v1/papago/n2mt"
 
         let headers: HTTPHeaders = [
-            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
             "X-Naver-Client-Id": "mikmnTlfdFwRhqV5zv78",
             "X-Naver-Client-Secret": "ULkIoOsJzn",
         ]

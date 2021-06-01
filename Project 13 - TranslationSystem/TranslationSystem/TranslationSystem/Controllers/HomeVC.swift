@@ -22,12 +22,15 @@ class HomeVC: UIViewController {
         
         $0.font = .systemFont(ofSize: 15)
         $0.placeholder = "원본 언어 입력"
+        $0.text = "ko"
     }
         
     let translationButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20)).then {
         $0.setImage(UIImage(systemName: "arrow.up.arrow.down"), for: .normal)
         
         $0.isUserInteractionEnabled = true
+        
+        $0.addTarget(self, action: #selector(didTapTranslationButton), for: .touchUpInside)
     }
     
     let targetTextView = UITextView().then {
@@ -35,14 +38,17 @@ class HomeVC: UIViewController {
         
         $0.isEditable = false
         $0.font = .systemFont(ofSize: 15)
-        $0.text = "애플리케이션 등록 (API이용신청) 페이지에서 애플리케이션 세부 정보를 입력하는 방법은 다음과 같습니다. 등록하려는 애플리케이션의 이름을 애플리케이션 이름에 입력합니다. 최대 40자까지 입력할 수 있습니다. 사용 API에서 Papago 번역을 선택해 추가합니다. 비로그인 오픈 API 서비스 환경에서 애플리케이션을 서비스할 환경을 추가하고 필요한 상세 정보를 입력합니다."
+//        $0.text = "애플리케이션 등록 (API이용신청) 페이지에서 애플리케이션 세부 정보를 입력하는 방법은 다음과 같습니다. 등록하려는 애플리케이션의 이름을 애플리케이션 이름에 입력합니다. 최대 40자까지 입력할 수 있습니다. 사용 API에서 Papago 번역을 선택해 추가합니다. 비로그인 오픈 API 서비스 환경에서 애플리케이션을 서비스할 환경을 추가하고 필요한 상세 정보를 입력합니다."
     }
     let targetLanguageTextField = UITextField().then {
         $0.borderStyle = .roundedRect
 
         $0.font = .systemFont(ofSize: 15)
         $0.placeholder = "목적 언어 입력"
+        $0.text = "en"
     }
+    
+    var response: Response?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,6 +99,65 @@ class HomeVC: UIViewController {
             $0.top.equalTo(targetLanguageTextField.snp.bottom).offset(10)
             $0.left.equalTo(sourceTextView.snp.left)
             $0.right.equalTo(sourceTextView.snp.right)
+        }
+    }
+    
+    @objc func didTapTranslationButton() {
+        postTranslateService(source: self.sourceLanguageTextField.text ?? "", target: self.targetLanguageTextField.text ?? "", text: self.sourceTextView.text, completionHandler: {
+            self.targetTextView.text = self.response?.message.result.translatedText
+        })
+    }
+    
+    func makeAlertDialog(title: String, message: String) {
+        
+        // alert : 가운데에서 출력되는 Dialog. 취소/동의 같이 2개 이하를 선택할 경우 사용. 간단명료 해야함.
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        // destructive : title 글씨가 빨갛게 변함
+        // cancel : 글자 진하게
+        // defaule : X
+        let alertDeleteBtn = UIAlertAction(title: "Cancel", style: .destructive) { (action) in
+            print("[SUCCESS] Dialog Cancel Button Click!")
+        }
+        let alertSuccessBtn = UIAlertAction(title: "OK", style: .default) { (action) in
+            print("[SUCCESS] Dialog Success Button Click!")
+        }
+        
+        // Dialog에 버튼 추가
+        alert.addAction(alertDeleteBtn)
+        alert.addAction(alertSuccessBtn)
+       
+        // 화면에 출력
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+// MARK: - Server connect
+
+extension HomeVC {
+    func postTranslateService(source: String, target: String, text: String, completionHandler: @escaping () -> Void ) {
+        TranslationService.shared.postTranslate(source, target, text) { (responsedata) in
+            switch responsedata {
+            case .success(let res):
+                self.response = res as? Response
+                completionHandler()
+                
+            case .requestErr(let message):
+                self.makeAlertDialog(title: "번역 실패", message: "\(message)")
+                print("request error")
+                
+            case .pathErr:
+                self.makeAlertDialog(title: "번역 실패", message: "지원하지 않는 언어입니다")
+                print(".pathErr")
+                
+            case .serverErr:
+                self.makeAlertDialog(title: "번역 실패", message: "서버에 오류가 있습니다")
+                print(".serverErr")
+                
+            case .networkFail :
+                self.makeAlertDialog(title: "번역 실패", message: "네트워크에 오류가 있습니다")
+                print("failure")
+            }
         }
     }
 }

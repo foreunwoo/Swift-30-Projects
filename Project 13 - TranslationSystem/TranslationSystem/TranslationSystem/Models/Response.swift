@@ -23,9 +23,30 @@ struct Message: Codable {
         case version = "@version"
         case result
     }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        type = (try? values.decode(String.self, forKey: .type)) ?? ""
+        service = (try? values.decode(String.self, forKey: .service)) ?? ""
+        version = (try? values.decode(String.self, forKey: .version)) ?? ""
+        result = (try? values.decode(Result.self, forKey: .result))!
+    }
 }
 
 // MARK: - Result
 struct Result: Codable {
     let srcLangType, tarLangType, translatedText: String
+    
+    enum CodingKeys: String, CodingKey {
+        case srcLangType
+        case tarLangType
+        case translatedText
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        srcLangType = (try? values.decode(String.self, forKey: .srcLangType)) ?? ""
+        tarLangType = (try? values.decode(String.self, forKey: .tarLangType)) ?? ""
+        translatedText = (try? values.decode(String.self, forKey: .translatedText)) ?? ""
+    }
 }
