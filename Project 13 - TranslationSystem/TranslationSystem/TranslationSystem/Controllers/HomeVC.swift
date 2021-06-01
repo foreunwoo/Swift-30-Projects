@@ -21,8 +21,7 @@ class HomeVC: UIViewController {
         $0.borderStyle = .roundedRect
         
         $0.font = .systemFont(ofSize: 15)
-        $0.placeholder = "원본 언어 입력"
-        $0.text = "ko"
+        $0.placeholder = "원본 언어 입력(간체/번체 구분 필요)"
     }
         
     let translationButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20)).then {
@@ -38,17 +37,18 @@ class HomeVC: UIViewController {
         
         $0.isEditable = false
         $0.font = .systemFont(ofSize: 15)
-//        $0.text = "애플리케이션 등록 (API이용신청) 페이지에서 애플리케이션 세부 정보를 입력하는 방법은 다음과 같습니다. 등록하려는 애플리케이션의 이름을 애플리케이션 이름에 입력합니다. 최대 40자까지 입력할 수 있습니다. 사용 API에서 Papago 번역을 선택해 추가합니다. 비로그인 오픈 API 서비스 환경에서 애플리케이션을 서비스할 환경을 추가하고 필요한 상세 정보를 입력합니다."
     }
     let targetLanguageTextField = UITextField().then {
         $0.borderStyle = .roundedRect
 
         $0.font = .systemFont(ofSize: 15)
-        $0.placeholder = "목적 언어 입력"
-        $0.text = "en"
+        $0.placeholder = "목적 언어 입력(간체/번체 구분 필요)"
+        $0.text = ""
     }
     
     var response: Response?
+    
+    var dic : [String : String] = ["한국어":"ko", "영어":"en", "일본어":"ja", "중국어 간체":"zh-CN", "중국어 번체":"zh-TW", "베트남어":"vi", "인도네시아어":"id", "태국어":"th", "독일어":"de", "러시아어":"ru", "스페인어":"es", "이탈리아어":"it", "프랑스어":"fr"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +70,7 @@ class HomeVC: UIViewController {
         
         sourceLanguageTextField.snp.makeConstraints {
             $0.width.greaterThanOrEqualTo(90)
+            $0.width.lessThanOrEqualTo(sourceTextView.snp.width)
             
             $0.left.equalTo(view.snp.left).offset(10)
             $0.bottom.equalTo(sourceTextView.snp.top).offset(-10)
@@ -89,6 +90,7 @@ class HomeVC: UIViewController {
         
         targetLanguageTextField.snp.makeConstraints {
             $0.width.greaterThanOrEqualTo(90)
+            $0.width.lessThanOrEqualTo(targetTextView.snp.width)
             
             $0.top.equalTo(translationButton.snp.bottom).offset(15)
             $0.left.equalTo(view.snp.left).offset(10)
@@ -103,31 +105,18 @@ class HomeVC: UIViewController {
     }
     
     @objc func didTapTranslationButton() {
-        postTranslateService(source: self.sourceLanguageTextField.text ?? "", target: self.targetLanguageTextField.text ?? "", text: self.sourceTextView.text, completionHandler: {
+        postTranslateService(source: dic[self.sourceLanguageTextField.text ?? ""] ?? "", target: dic[self.targetLanguageTextField.text ?? ""] ?? "", text: self.sourceTextView.text, completionHandler: {
             self.targetTextView.text = self.response?.message.result.translatedText
         })
     }
     
     func makeAlertDialog(title: String, message: String) {
-        
-        // alert : 가운데에서 출력되는 Dialog. 취소/동의 같이 2개 이하를 선택할 경우 사용. 간단명료 해야함.
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        // destructive : title 글씨가 빨갛게 변함
-        // cancel : 글자 진하게
-        // defaule : X
-        let alertDeleteBtn = UIAlertAction(title: "Cancel", style: .destructive) { (action) in
-            print("[SUCCESS] Dialog Cancel Button Click!")
-        }
-        let alertSuccessBtn = UIAlertAction(title: "OK", style: .default) { (action) in
-            print("[SUCCESS] Dialog Success Button Click!")
-        }
-        
-        // Dialog에 버튼 추가
-        alert.addAction(alertDeleteBtn)
-        alert.addAction(alertSuccessBtn)
        
-        // 화면에 출력
+        let confirmButton = UIAlertAction(title: "확인", style: .default, handler: .none)
+        
+        alert.addAction(confirmButton)
+       
         self.present(alert, animated: true, completion: nil)
     }
 }
