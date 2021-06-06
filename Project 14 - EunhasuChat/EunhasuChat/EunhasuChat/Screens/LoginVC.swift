@@ -36,11 +36,17 @@ class LoginVC: UIViewController {
         
         $0.setTitle("로그인", for: .normal)
         $0.titleLabel?.font = .boldSystemFont(ofSize: 18)
+        
+        $0.isUserInteractionEnabled = true
     }
     let signUpButton = UIButton().then {
         $0.setTitleColor(.systemBlue, for: .normal)
         $0.setTitle("회원가입", for: .normal)
         $0.titleLabel?.font = .boldSystemFont(ofSize: 18)
+        
+        $0.isUserInteractionEnabled = true
+        
+        $0.addTarget(self, action: #selector(didTapSignUpButton), for: .touchUpInside)
     }
 
     override func viewDidLoad() {
@@ -62,7 +68,7 @@ class LoginVC: UIViewController {
         
         logoLabel.snp.makeConstraints {
             $0.centerX.equalTo(view)
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(60)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(80)
         }
         
         idTextField.snp.makeConstraints {
@@ -90,6 +96,12 @@ class LoginVC: UIViewController {
             $0.left.equalTo(loginButton.snp.left)
             $0.right.equalTo(loginButton.snp.right)
         }
+    }
+    
+    @objc func didTapSignUpButton() {
+        let signUpVC = SignUpVC()
+        
+        present(signUpVC, animated: true, completion: .none)
     }
 
 }
