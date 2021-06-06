@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2818581D2257DC777D0699CB /* Pods_EunhasuChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FC1704D63DD5F2875F4ED1 /* Pods_EunhasuChat.framework */; };
 		4555945D266CAB1700BDF2FA /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4555945C266CAB1700BDF2FA /* SignUpVC.swift */; };
+		45559461266CB07E00BDF2FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45559460266CB07E00BDF2FA /* GoogleService-Info.plist */; };
 		4559A9BE266B992700AF4D8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A9BD266B992700AF4D8B /* AppDelegate.swift */; };
 		4559A9C0266B992700AF4D8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559A9BF266B992700AF4D8B /* SceneDelegate.swift */; };
 		4559A9C5266B992700AF4D8B /* EunhasuChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4559A9C3266B992700AF4D8B /* EunhasuChat.xcdatamodeld */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		42FC1704D63DD5F2875F4ED1 /* Pods_EunhasuChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EunhasuChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4555945C266CAB1700BDF2FA /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		45559460266CB07E00BDF2FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4559A9BA266B992700AF4D8B /* EunhasuChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EunhasuChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4559A9BD266B992700AF4D8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4559A9BF266B992700AF4D8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				4559A9F3266B9AB100AF4D8B /* Screens */,
 				4559A9F2266B9A9F00AF4D8B /* Globals */,
 				4559A9C3266B992700AF4D8B /* EunhasuChat.xcdatamodeld */,
+				45559460266CB07E00BDF2FA /* GoogleService-Info.plist */,
 			);
 			path = EunhasuChat;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			files = (
 				4559A9CD266B992900AF4D8B /* LaunchScreen.storyboard in Resources */,
 				4559A9C7266B992900AF4D8B /* Assets.xcassets in Resources */,
+				45559461266CB07E00BDF2FA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

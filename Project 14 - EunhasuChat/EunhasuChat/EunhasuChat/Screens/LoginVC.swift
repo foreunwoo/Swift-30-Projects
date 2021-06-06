@@ -17,7 +17,7 @@ class LoginVC: UIViewController {
         $0.textColor = .systemBlue
     }
     
-    let idTextField = UITextField().then {
+    let emailTextField = UITextField().then {
         $0.borderStyle = .roundedRect
         
         $0.placeholder = "아이디를 입력해 주세요"
@@ -60,7 +60,7 @@ class LoginVC: UIViewController {
         
         view.addSubview(logoLabel)
         
-        view.addSubview(idTextField)
+        view.addSubview(emailTextField)
         view.addSubview(pwTextField)
         
         view.addSubview(loginButton)
@@ -71,15 +71,15 @@ class LoginVC: UIViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(80)
         }
         
-        idTextField.snp.makeConstraints {
+        emailTextField.snp.makeConstraints {
             $0.top.equalTo(logoLabel.snp.bottom).offset(120)
             $0.left.equalTo(view.snp.left).offset(40)
             $0.right.equalTo(view.snp.right).inset(40)
         }
         pwTextField.snp.makeConstraints {
-            $0.top.equalTo(idTextField.snp.bottom).offset(10)
-            $0.left.equalTo(idTextField.snp.left)
-            $0.right.equalTo(idTextField.snp.right)
+            $0.top.equalTo(emailTextField.snp.bottom).offset(20)
+            $0.left.equalTo(emailTextField.snp.left)
+            $0.right.equalTo(emailTextField.snp.right)
         }
         
         loginButton.snp.makeConstraints {
@@ -100,7 +100,7 @@ class LoginVC: UIViewController {
     
     @objc func didTapSignUpButton() {
         let signUpVC = SignUpVC()
-        
+                
         present(signUpVC, animated: true, completion: .none)
     }
 
