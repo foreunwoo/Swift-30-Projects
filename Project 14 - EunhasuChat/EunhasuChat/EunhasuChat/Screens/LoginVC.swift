@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Then
+import Firebase
 
 class LoginVC: UIViewController {
     
@@ -28,6 +29,7 @@ class LoginVC: UIViewController {
         
         $0.placeholder = "비밀번호를 입력해 주세요"
         $0.font = .systemFont(ofSize: 13)
+        $0.isSecureTextEntry = true
     }
     
     let loginButton = UIButton().then {
@@ -38,6 +40,8 @@ class LoginVC: UIViewController {
         $0.titleLabel?.font = .boldSystemFont(ofSize: 18)
         
         $0.isUserInteractionEnabled = true
+        
+        $0.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
     }
     let signUpButton = UIButton().then {
         $0.setTitleColor(.systemBlue, for: .normal)
@@ -98,10 +102,28 @@ class LoginVC: UIViewController {
         }
     }
     
+    @objc func didTapLoginButton() {
+        let email = "\(emailTextField.text ?? "")@gmail.com"
+        
+        Auth.auth().signIn(withEmail: email, password: pwTextField.text ?? "") { (user, error) in
+            if user != nil{
+                print("login success")
+            }
+            else{
+                print(error!)
+            }
+        }
+    }
+    
     @objc func didTapSignUpButton() {
         let signUpVC = SignUpVC()
+        
+        signUpVC.loginVC = self
                 
         present(signUpVC, animated: true, completion: .none)
     }
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }
